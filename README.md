@@ -1,5 +1,7 @@
 # eucalyptus
 
+![alt text](http://public.media.smithsonianmag.com/legacy_blog/eucalyptus-gold.jpg "Eucalyptus")
+
 An easy interface and abstraction to the Facebook Ads API, built on top of Koala.
 
 
