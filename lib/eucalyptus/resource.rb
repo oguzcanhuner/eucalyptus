@@ -19,8 +19,11 @@ module Eucalyptus
     end
 
     def initialize(response)
-      @id = response["id"]
+      @response = Response.new(response)
     end
-    attr_reader :id
+
+    def method_missing(method_sym, *args, &block)
+      @response.send(method_sym)
+    end
   end
 end

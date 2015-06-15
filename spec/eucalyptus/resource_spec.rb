@@ -24,5 +24,21 @@ describe Eucalyptus::Resource do
         expect(Eucalyptus::CustomAudience.all(graph: graph)).to be_a Array
       end
     end
+
+    describe '#method_missing' do
+      let(:response) { { "id" => "123", "name" => "Audience", "stats" => {"cpa" => "12"} }}
+      let(:resource) { Eucalyptus::CustomAudience.new(response) }
+      it 'responds to a message which corresponds with a key in the response hash' do
+        expect( resource.name ).to eql "Audience"
+      end
+
+      it 'works with nested hashes too' do
+        expect( resource.stats.cpa ).to eql "12"
+      end
+
+      it 'returns nil when tryng to access a key which doesnt exist in the response' do
+        expect( resource.fake_key ).to eql nil
+      end
+    end
   end
 end
