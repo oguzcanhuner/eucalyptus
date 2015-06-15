@@ -5,7 +5,7 @@ module Eucalyptus
     end
 
     def self.parent
-      raise "You must implement this method"
+      Account.all.last
     end
 
     def self.find(id, graph: Eucalyptus.graph)

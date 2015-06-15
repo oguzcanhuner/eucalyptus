@@ -1,9 +1,9 @@
 require_relative 'resource'
 
 module Eucalyptus
-  class CustomAudience < Resource
+  class Ad < Resource
     def self.api_path
-      "customaudiences"
+      "adgroups"
     end
   end
 end
