@@ -1,4 +1,7 @@
 require 'koala'
+Dir[File.dirname(__FILE__) + '/eucalyptus/**/*.rb'].each do |file|
+  require file
+end
 
 module Eucalyptus
   class << self
