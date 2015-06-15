@@ -1,3 +1,5 @@
+# vim
+*.swp
 # rcov generated
 coverage
 coverage.data
