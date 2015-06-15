@@ -1,9 +1,45 @@
 # eucalyptus
 
+An easy interface and abstraction to the Facebook Ads API.
+
 ![alt text](http://public.media.smithsonianmag.com/legacy_blog/eucalyptus-gold.jpg "Eucalyptus")
 
-An easy interface and abstraction to the Facebook Ads API, built on top of Koala.
+## Installation
 
+`gem install eucalyptus`
+
+or stick this in your gemfile:
+
+`gem 'eucalyptus'`
+
+You then need to grab yourself an access token from facebook and initialize Eucalyptus with it:
+
+```
+Eucalyptus.configure do |config|
+  config.access_token = YOUR_ACCESS_TOKEN
+end
+```
+
+And you're all set to go!
+
+## Usage
+
+```
+account = Eucalyptus::Account.all.last
+campaign = account.campaigns.first
+
+campaign.name
+
+account_ads = account.ads
+campaign_ads = campaign.ads
+
+stats = campaign.report_stats
+stats.cpa
+
+ads = Add.all
+
+ads == account_ads
+```
 
 ## Contributing to eucalyptus
  
