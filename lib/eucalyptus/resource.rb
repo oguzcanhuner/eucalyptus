@@ -13,8 +13,8 @@ module Eucalyptus
       self.new(response)
     end
 
-    def self.all(graph: Eucalyptus.graph, parent: parent)
-      response = graph.get_connection(parent, api_path)
+    def self.all(graph: Eucalyptus.graph, parent: self.parent)
+      response = graph.get_connection(parent.id, api_path)
       response.collect{ |res| self.new(res) }
     end
 

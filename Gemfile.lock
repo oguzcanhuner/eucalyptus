@@ -4,6 +4,8 @@ GEM
     addressable (2.3.8)
     builder (3.2.2)
     coderay (1.1.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
@@ -71,6 +73,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    safe_yaml (1.0.4)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -78,6 +81,10 @@ GEM
     simplecov-html (0.10.0)
     slop (3.6.0)
     thread_safe (0.3.5)
+    vcr (2.9.2)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
 
 PLATFORMS
   ruby
@@ -91,3 +98,5 @@ DEPENDENCIES
   rdoc (~> 3.12)
   rspec
   simplecov
+  vcr
+  webmock

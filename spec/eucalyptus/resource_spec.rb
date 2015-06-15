@@ -19,9 +19,10 @@ describe Eucalyptus::Resource do
     describe '.all' do
       let(:response) { [{ "id" => "123"}, {"id" => "321"}] }
       let(:graph) { double(:graph, get_connection: response) }
+      let(:parent) { double(:parent, id: 123) }
 
       it 'returns a collection of resources' do
-        expect(Eucalyptus::CustomAudience.all(graph: graph)).to be_a Array
+        expect(Eucalyptus::CustomAudience.all(graph: graph, parent: parent)).to be_a Array
       end
     end
 
