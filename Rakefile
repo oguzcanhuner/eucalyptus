@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "eucalyptus"
   gem.homepage = "http://github.com/oguzcanhuner/eucalyptus"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "An easy interface and abstraction to the Facebook Ads API"
+  gem.description = "An easy interface and abstraction to the Facebook Ads API"
   gem.email = "oguzcanhuner@gmail.com"
   gem.authors = ["Oguz Huner"]
   # dependencies defined in Gemfile
