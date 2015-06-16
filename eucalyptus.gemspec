@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "eucalyptus.gemspec",
     "fixtures/vcr_cassettes/account_ad_sets.yml",
     "fixtures/vcr_cassettes/account_ads.yml",
     "fixtures/vcr_cassettes/account_campaigns.yml",
@@ -49,7 +50,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/oguzcanhuner/eucalyptus"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.4"
-  s.summary = "An easy interface and abstraction to the Facebook Ads API"
+  s.summary = "TODO: one-line summary of your gem"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
