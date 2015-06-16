@@ -1,3 +1,4 @@
+.env
 # vim
 *.swp
 # rcov generated
@@ -49,3 +50,5 @@ pkg
 
 # For rubinius:
 #*.rbc
+#
+

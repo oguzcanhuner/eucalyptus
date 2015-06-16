@@ -5,5 +5,9 @@ module Eucalyptus
     def self.api_path
       "customaudiences"
     end
+
+    def self.known_fields
+      [:name, :description]
+    end
   end
 end
