@@ -49,7 +49,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/oguzcanhuner/eucalyptus"
   s.licenses = ["MIT"]
   s.rubygems_version = "2.4.4"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "An easy interface and abstraction to the Facebook Ads API"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
