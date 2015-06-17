@@ -4,10 +4,11 @@ module Eucalyptus
   class Campaign < Resource
     def self.known_fields
       [
+        :buying_type,
+        :campaign_group_status,
         :name,
-        :status,
-        :users,
-        :accounts
+        :objective,
+        :spend_cap
       ]
     end
 
