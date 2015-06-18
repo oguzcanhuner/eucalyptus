@@ -9,7 +9,6 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
-    docile (1.1.5)
     dotenv (2.0.1)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
@@ -74,11 +73,6 @@ GEM
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
     safe_yaml (1.0.4)
-    simplecov (0.10.0)
-      docile (~> 1.1.0)
-      json (~> 1.8)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.0)
     slop (3.6.0)
     thread_safe (0.3.5)
     vcr (2.9.2)
@@ -97,6 +91,5 @@ DEPENDENCIES
   pry
   rdoc (~> 3.12)
   rspec
-  simplecov
   vcr
   webmock
