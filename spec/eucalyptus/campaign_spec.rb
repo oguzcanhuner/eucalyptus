@@ -7,6 +7,28 @@ describe Eucalyptus::Campaign do
     end
   end
 
+  describe '#ads' do
+    let(:campaign) { Eucalyptus::Campaign.all.last }
+
+    it 'returns a collection of Ad objects which belong to the campaign' do
+      VCR.use_cassette("campaign_ads") do
+        expect(campaign.ads).to be_a Array
+        expect(campaign.ads.first).to be_a Eucalyptus::Ad
+      end
+    end
+  end
+
+  describe '#ad_sets' do
+    let(:campaign) { Eucalyptus::Campaign.all.last }
+
+    it 'returns a collection of Ad objects which belong to the campaign' do
+      VCR.use_cassette("campaign_ad_sets") do
+        expect(campaign.ad_sets).to be_a Array
+        expect(campaign.ad_sets.first).to be_a Eucalyptus::AdSet
+      end
+    end
+  end
+
   describe 'returning known fields' do
     let(:campaign) { Eucalyptus::Campaign.all.last }
 

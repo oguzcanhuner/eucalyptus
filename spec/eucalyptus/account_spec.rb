@@ -27,7 +27,6 @@ describe Eucalyptus::Account do
         expect(account.ad_sets.first).to be_a Eucalyptus::AdSet
       end
     end
-
   end
 
   describe '#campaigns' do
@@ -39,6 +38,5 @@ describe Eucalyptus::Account do
         expect(account.campaigns.first).to be_a Eucalyptus::Campaign
       end
     end
-
   end
 end

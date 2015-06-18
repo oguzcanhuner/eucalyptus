@@ -15,5 +15,8 @@ module Eucalyptus
     def self.api_path
       "adcampaign_groups"
     end
+
+    def ads; Ad.all(parent: self); end
+    def ad_sets; AdSet.all(parent: self); end
   end
 end
