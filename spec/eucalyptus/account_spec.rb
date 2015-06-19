@@ -7,9 +7,18 @@ describe Eucalyptus::Account do
     end
   end
 
-  describe '#ads' do
-    let(:account) { Eucalyptus::Account.all.last }
+  let(:account) { Eucalyptus::Account.all.last }
 
+  describe '#insights' do
+    it 'returns an array of insights for the account' do
+      VCR.use_cassette("resource_insights") do
+        expect(account.insights).to be_a Array
+        expect(account.insights.first).to be_a Eucalyptus::Insight
+      end
+    end
+  end
+
+  describe '#ads' do
     it 'returns a collection of Ad objects which belong to the account' do
       VCR.use_cassette("account_ads") do
         expect(account.ads).to be_a Array
@@ -19,8 +28,6 @@ describe Eucalyptus::Account do
   end
 
   describe '#ad_sets' do
-    let(:account) { Eucalyptus::Account.all.last }
-
     it 'returns a collection of AdSet objects which belong to the account' do
       VCR.use_cassette("account_ad_sets") do
         expect(account.ad_sets).to be_a Array
@@ -30,8 +37,6 @@ describe Eucalyptus::Account do
   end
 
   describe '#campaigns' do
-    let(:account) { Eucalyptus::Account.all.last }
-
     it 'returns a collection of AdSet objects which belong to the account' do
       VCR.use_cassette("account_campaigns") do
         expect(account.campaigns).to be_a Array

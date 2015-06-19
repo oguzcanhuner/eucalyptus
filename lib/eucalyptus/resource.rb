@@ -1,11 +1,11 @@
 module Eucalyptus
   class Resource
     def self.api_path
-      raise "You must implement this method"
+      raise "You must implement #{__method__.to_s}"
     end
 
     def self.known_fields
-      raise "You must implement this method"
+      raise "You must implement #{__method__.to_s}"
     end
 
     def self.parent

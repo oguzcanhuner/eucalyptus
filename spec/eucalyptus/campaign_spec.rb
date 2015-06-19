@@ -7,9 +7,18 @@ describe Eucalyptus::Campaign do
     end
   end
 
-  describe '#ads' do
-    let(:campaign) { Eucalyptus::Campaign.all.last }
+  let(:campaign) { Eucalyptus::Campaign.all.last }
 
+  describe '#insights' do
+    it 'returns an array of insights for the account' do
+      VCR.use_cassette("campaign_insights") do
+        expect(campaign.insights).to be_a Array
+        expect(campaign.insights.first).to be_a Eucalyptus::Insight
+      end
+    end
+  end
+
+  describe '#ads' do
     it 'returns a collection of Ad objects which belong to the campaign' do
       VCR.use_cassette("campaign_ads") do
         expect(campaign.ads).to be_a Array
@@ -19,8 +28,6 @@ describe Eucalyptus::Campaign do
   end
 
   describe '#ad_sets' do
-    let(:campaign) { Eucalyptus::Campaign.all.last }
-
     it 'returns a collection of Ad objects which belong to the campaign' do
       VCR.use_cassette("campaign_ad_sets") do
         expect(campaign.ad_sets).to be_a Array
@@ -30,8 +37,6 @@ describe Eucalyptus::Campaign do
   end
 
   describe 'returning known fields' do
-    let(:campaign) { Eucalyptus::Campaign.all.last }
-
     it 'returns an object which responds to available fields' do
       VCR.use_cassette("campaign") do
         expect(campaign).to respond_to :name

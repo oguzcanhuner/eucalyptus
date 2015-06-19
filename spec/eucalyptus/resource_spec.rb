@@ -8,6 +8,7 @@ describe Eucalyptus::Resource do
   end
 
   context "given a class which inherits from Eucalyptus::Resource" do
+
     describe ".find" do
       let(:graph) { double(:graph, get_object: { "id" => "123" }) }
 

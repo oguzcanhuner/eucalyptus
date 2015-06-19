@@ -9,6 +9,16 @@ describe Eucalyptus::AdSet do
 
   let(:ad_set) { Eucalyptus::AdSet.all.first }
 
+  describe '#insights' do
+    it 'returns an array of insights for the account' do
+      VCR.use_cassette("ad_set_insights") do
+        active_ad_set = Eucalyptus::AdSet.all.find{|ad_set| ad_set.campaign_status == "ACTIVE"}
+        expect(active_ad_set.insights).to be_a Array
+        expect(active_ad_set.insights.first).to be_a Eucalyptus::Insight
+      end
+    end
+  end
+
   describe '#campaign' do
     it 'returns the parent campaign for an ad_set' do
       VCR.use_cassette("ad_set_campaign") do

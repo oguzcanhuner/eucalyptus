@@ -43,6 +43,7 @@ module Eucalyptus
       "adaccounts"
     end
 
+
     # 'me' is a facebook helper which refers to the user who created the access token
     #
     # there is no object which abstracts this, which is why we're using a generic 
@@ -55,5 +56,6 @@ module Eucalyptus
     def ads; Ad.all(parent: self); end
     def ad_sets; AdSet.all(parent: self); end
     def campaigns; Campaign.all(parent: self); end
+    def insights; Insight.all(parent: self); end
   end
 end

@@ -18,5 +18,6 @@ module Eucalyptus
 
     def ads; Ad.all(parent: self); end
     def ad_sets; AdSet.all(parent: self); end
+    def insights; Insight.all(parent: self); end
   end
 end

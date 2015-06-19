@@ -26,6 +26,7 @@ module Eucalyptus
 
     def campaign; Campaign.find(self.campaign_group_id); end
     def ads; Ad.all(parent: self); end
+    def insights; Insight.all(parent: self); end
 
     def self.api_path
       "adcampaigns"
