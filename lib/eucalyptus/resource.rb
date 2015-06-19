@@ -12,12 +12,16 @@ module Eucalyptus
       Account.all.last
     end
 
-    def self.find(id, graph: Eucalyptus.graph, fields: self.known_fields)
+    def self.find(id, fields: [], graph: Eucalyptus.graph)
+      fields.concat(self.known_fields).uniq
+
       response = graph.get_object(id, fields: fields)
       self.new(response)
     end
 
-    def self.all(graph: Eucalyptus.graph, parent: self.parent, fields: self.known_fields)
+    def self.all(graph: Eucalyptus.graph, parent: self.parent, fields: [])
+      fields.concat(self.known_fields).uniq
+
       response = graph.get_connection(parent.id, api_path, fields: fields)
       response.collect{ |res| self.new(res) }
     end

@@ -32,6 +32,10 @@ module Eucalyptus
       ]
     end
 
+    def self.find
+      raise "An insight can only be used as part of a combined call. Try Insight.all"
+    end
+
     def self.api_path
       'insights'
     end
