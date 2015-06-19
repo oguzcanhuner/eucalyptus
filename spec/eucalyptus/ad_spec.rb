@@ -7,8 +7,17 @@ describe Eucalyptus::Ad do
     end
   end
 
+  let(:ad) { Eucalyptus::Ad.all.last }
+
+  describe '#ad_set' do
+    it 'returns the parent ad_set for this ad' do
+      VCR.use_cassette("ad_adset") do
+        expect(ad.ad_set).to be_a Eucalyptus::AdSet
+      end
+    end
+  end
+
   describe 'returning known fields' do
-    let(:ad) { Eucalyptus::Ad.all.last }
 
     it 'returns an object which responds to available fields' do
       VCR.use_cassette("ad") do

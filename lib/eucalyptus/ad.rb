@@ -18,6 +18,10 @@ module Eucalyptus
       ]
     end
 
+    def ad_set
+      AdSet.find(self.campaign_id)
+    end
+
     def self.api_path
       "adgroups"
     end

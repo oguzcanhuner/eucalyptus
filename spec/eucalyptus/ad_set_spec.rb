@@ -7,9 +7,17 @@ describe Eucalyptus::AdSet do
     end
   end
 
-  describe '#ads' do
-    let(:ad_set) { Eucalyptus::AdSet.all.first }
+  let(:ad_set) { Eucalyptus::AdSet.all.first }
 
+  describe '#campaign' do
+    it 'returns the parent campaign for an ad_set' do
+      VCR.use_cassette("ad_set_campaign") do
+        expect(ad_set.campaign).to be_a Eucalyptus::Campaign
+      end
+    end
+  end
+
+  describe '#ads' do
     it 'returns a collection of Ad objects which belong to the ad_set' do
       VCR.use_cassette("ad_set_ads") do
         expect(ad_set.ads).to be_a Array
@@ -19,8 +27,6 @@ describe Eucalyptus::AdSet do
   end
 
   describe 'returning known fields' do
-    let(:ad_set) { Eucalyptus::AdSet.all.last }
-
     it 'returns an object which responds to available fields' do
       VCR.use_cassette("ad_set") do
         expect(ad_set).to respond_to :name
