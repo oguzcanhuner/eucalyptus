@@ -7,6 +7,17 @@ describe Eucalyptus::AdSet do
     end
   end
 
+  describe '#ads' do
+    let(:ad_set) { Eucalyptus::AdSet.all.first }
+
+    it 'returns a collection of Ad objects which belong to the ad_set' do
+      VCR.use_cassette("ad_set_ads") do
+        expect(ad_set.ads).to be_a Array
+        expect(ad_set.ads.first).to be_a Eucalyptus::Ad
+      end
+    end
+  end
+
   describe 'returning known fields' do
     let(:ad_set) { Eucalyptus::AdSet.all.last }
 

@@ -24,6 +24,8 @@ module Eucalyptus
       ]
     end
 
+    def ads; Ad.all(parent: self); end
+
     def self.api_path
       "adcampaigns"
     end
