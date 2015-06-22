@@ -33,8 +33,8 @@ campaign.name
 account_ads = account.ads
 campaign_ads = campaign.ads
 
-stats = campaign.report_stats
-stats.cpa
+insights = campaign.insights
+insights.cpa
 
 ads = Add.all
 
