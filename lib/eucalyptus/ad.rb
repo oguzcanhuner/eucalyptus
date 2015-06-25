@@ -19,7 +19,6 @@ module Eucalyptus
     end
 
     def ad_set; AdSet.find(self.campaign_id); end
-    def insights; Insight.all(parent: self); end
 
     def self.api_path
       "adgroups"

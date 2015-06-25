@@ -41,5 +41,21 @@ module Eucalyptus
     def respond_to?(method_sym, include_private = false)
       @response.respond_to?(method_sym)
     end
+
+    def ads(options={}) 
+      Ad.all(parent: self, options: options)
+    end
+
+    def campaigns(options={}) 
+      Campaign.all(parent: self, options: options)
+    end
+
+    def ad_sets(options={}) 
+      AdSet.all(parent: self, options: options)
+    end
+
+    def insights(options={})
+      Insight.all(parent: self, options: options)
+    end
   end
 end

@@ -51,11 +51,5 @@ module Eucalyptus
     def self.parent
       OpenStruct.new(id: "me")
     end
-
-    # ASSOCIATOINS
-    def ads; Ad.all(parent: self); end
-    def ad_sets; AdSet.all(parent: self); end
-    def campaigns; Campaign.all(parent: self); end
-    def insights; Insight.all(parent: self); end
   end
 end

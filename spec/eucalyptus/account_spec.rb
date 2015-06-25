@@ -11,7 +11,7 @@ describe Eucalyptus::Account do
 
   describe '#insights' do
     it 'returns an array of insights for the account' do
-      VCR.use_cassette("resource_insights") do
+      VCR.use_cassette("account_insights") do
         expect(account.insights).to be_a Array
         expect(account.insights.first).to be_a Eucalyptus::Insight
       end
@@ -37,7 +37,7 @@ describe Eucalyptus::Account do
   end
 
   describe '#campaigns' do
-    it 'returns a collection of AdSet objects which belong to the account' do
+    it 'returns a collection of Campaign objects which belong to the account' do
       VCR.use_cassette("account_campaigns") do
         expect(account.campaigns).to be_a Array
         expect(account.campaigns.first).to be_a Eucalyptus::Campaign
