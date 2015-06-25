@@ -79,14 +79,28 @@ describe Eucalyptus::Resource do
           expect(audiences.first).to_not respond_to :random_method
         end
 
-        it 'accepts extra fields' do
+        it 'accepts custom fields' do
           graph = double(:graph)
           expect(graph).to receive(:get_connection)
             .with(123, "customaudiences", {fields: [:custom_field, :name, :description]})
             .and_return([])
 
-          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, fields: [:custom_field]) 
+          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {fields: [:custom_field]}) 
         end
+
+        it 'accepts any time of option' do
+          graph = double(:graph)
+          expect(graph).to receive(:get_connection)
+            .with(123, "customaudiences", {action_breakdowns: [:custom_field], fields: [:name, :description]})
+            .and_return([])
+
+          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {action_breakdowns: [:custom_field]}) 
+        end
+      end
+    end
+
+    describe '#update' do
+      it 'updates a resource' do
       end
     end
 

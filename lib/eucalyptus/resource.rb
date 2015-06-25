@@ -19,10 +19,14 @@ module Eucalyptus
       self.new(response)
     end
 
-    def self.all(graph: Eucalyptus.graph, parent: self.parent, fields: [])
-      fields.concat(self.known_fields).uniq
+    def self.all(graph: Eucalyptus.graph, parent: self.parent, options: {})
+      if options[:fields]
+        options[:fields].concat(self.known_fields).uniq
+      else
+        options[:fields] = self.known_fields
+      end
 
-      response = graph.get_connection(parent.id, api_path, fields: fields)
+      response = graph.get_connection(parent.id, api_path, options)
       response.collect{ |res| self.new(res) }
     end
 

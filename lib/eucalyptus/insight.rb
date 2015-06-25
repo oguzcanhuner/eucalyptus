@@ -28,7 +28,9 @@ module Eucalyptus
         :spend,
         :total_action_value,
         :total_actions,
-        :total_unique_actions
+        :total_unique_actions,
+        :cost_per_action_type,
+        :action_values
       ]
     end
 
