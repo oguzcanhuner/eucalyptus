@@ -9,6 +9,15 @@ describe Eucalyptus::Ad do
 
   let(:ad) { Eucalyptus::Ad.all.last }
 
+  describe '#find' do
+    it 'retuns an ad' do
+      VCR.use_cassette("ad") do
+        ad = Eucalyptus::Ad.all.last
+        Eucalyptus::Ad.find(ad.id)
+      end
+    end
+  end
+
   describe '#insights' do
     it 'returns an array of insights for the account' do
       VCR.use_cassette("ad_set_insights") do

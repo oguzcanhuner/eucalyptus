@@ -5,17 +5,21 @@ module Eucalyptus
     def self.known_fields
       [
         :id,
-        :name,
+        :account_id,
+        :adgroup_review_feedback,
         :adgroup_status,
+        :bid_type,
         :bid_info,
-        :conversion_specs,
         :campaign_id,
+        :campaign_group_id,
+        :conversion_specs,
+        :created_time,
         :creative,
-        :engagement_audiences,
-        :execution_options,
-        :redownload,
+        :failed_delivery_checks,
+        :targeting,
         :tracking_specs,
-        :social_prefs
+        :updated_time,
+        :name
       ]
     end
 
