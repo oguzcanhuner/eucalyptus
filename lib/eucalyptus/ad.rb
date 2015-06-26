@@ -4,6 +4,7 @@ module Eucalyptus
   class Ad < Resource
     def self.known_fields
       [
+        :id,
         :name,
         :adgroup_status,
         :bid_info,

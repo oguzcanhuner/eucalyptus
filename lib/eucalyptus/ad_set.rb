@@ -4,6 +4,7 @@ module Eucalyptus
   class AdSet < Resource
     def self.known_fields
       [
+        :id,
         :account_id,
         :bid_info,
         :bid_type,

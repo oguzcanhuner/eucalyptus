@@ -4,6 +4,7 @@ module Eucalyptus
   class Account < Resource
     def self.known_fields
       [
+        :account_id,
         :account_status,
         :age,
         :agency_client_declaration,
