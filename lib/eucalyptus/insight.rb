@@ -4,7 +4,6 @@ module Eucalyptus
   class Insight < Resource
     def self.known_fields
       [
-        :actions_per_impression,
         :call_to_action_clicks,
         :clicks,
         :unique_clicks,
