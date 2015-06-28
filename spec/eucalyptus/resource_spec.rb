@@ -101,6 +101,11 @@ describe Eucalyptus::Resource do
 
     describe '#update' do
       it 'updates a resource' do
+        VCR.use_cassette("updating_adset") do
+          graph = double(:graph, put_connections: {success: true})
+          ad_set = Eucalyptus::AdSet.find(6025097880671)
+          expect(ad_set.update(graph: graph, fields: {bid_type: "CPM"})).to eql({success: true})
+        end
       end
     end
 

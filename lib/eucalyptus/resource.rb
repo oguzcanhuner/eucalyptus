@@ -30,6 +30,7 @@ module Eucalyptus
       response.collect{ |res| self.new(res) }
     end
 
+
     def initialize(response)
       @response = Response.new(response)
     end
@@ -40,6 +41,10 @@ module Eucalyptus
 
     def respond_to?(method_sym, include_private = false)
       @response.respond_to?(method_sym)
+    end
+
+    def update(graph: Eucalyptus.graph, fields:)
+      graph.put_connections(self.id, "", fields)
     end
 
     def ads(options={}) 
