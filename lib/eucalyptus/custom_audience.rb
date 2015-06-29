@@ -6,8 +6,8 @@ module Eucalyptus
       "customaudiences"
     end
 
-    def ad_sets
-      AdSet.all.collect do |ad_set|
+    def ad_sets(from_collection: AdSet.all)
+      from_collection.collect do |ad_set|
         if ad_set.targeting.custom_audiences
           ad_set if ad_set.targeting.custom_audiences.any?{|a| a["id"] == self.id }
         end
