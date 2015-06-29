@@ -124,5 +124,6 @@ describe Eucalyptus::Resource do
         expect( resource.fake_key ).to eql nil
       end
     end
+
   end
 end

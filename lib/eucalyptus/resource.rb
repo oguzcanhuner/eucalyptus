@@ -1,3 +1,5 @@
+require 'json'
+
 module Eucalyptus
   class Resource
     def self.api_path
@@ -25,8 +27,6 @@ module Eucalyptus
       else
         options[:fields] = self.known_fields
       end
-
-      options[:limit] = 5000
 
       response = graph.get_connection(parent.id, api_path, options)
       response.collect{ |res| self.new(res) }
