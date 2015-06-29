@@ -26,6 +26,8 @@ module Eucalyptus
         options[:fields] = self.known_fields
       end
 
+      options[:limit] = 5000
+
       response = graph.get_connection(parent.id, api_path, options)
       response.collect{ |res| self.new(res) }
     end
