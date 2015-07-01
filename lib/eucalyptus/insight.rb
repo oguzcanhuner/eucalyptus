@@ -19,7 +19,6 @@ module Eucalyptus
         :impressions,
         :reach,
         :relevance_score,
-        :roas,
         :social_clicks,
         :unique_social_clicks,
         :social_impressions,
