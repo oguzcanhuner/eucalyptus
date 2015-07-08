@@ -15,6 +15,15 @@ describe Eucalyptus::CustomAudience do
     end
   end
 
+  describe '#populate' do
+    it 'populates an audience with a list of emails' do
+      VCR.use_cassette('populate_audience') do
+        audience = Eucalyptus::CustomAudience.create(name: "oz-test")
+        audience.populate(["oz@lostmy.name","dev@lostmy.name"])
+      end
+    end
+  end
+
   describe '#ad_sets' do
     it 'returns ad_sets which belong to the audience' do
       VCR.use_cassette('audience_ad_sets') do
