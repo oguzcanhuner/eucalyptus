@@ -49,6 +49,10 @@ module Eucalyptus
       graph.put_connections(self.id, "", fields)
     end
 
+    def delete(graph: Eucalyptus.graph)
+      graph.delete_object(self.id)
+    end
+
     def ads(options={}) 
       Ad.all(parent: self, options: options)
     end

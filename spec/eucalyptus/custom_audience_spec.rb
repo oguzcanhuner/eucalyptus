@@ -7,6 +7,14 @@ describe Eucalyptus::CustomAudience do
     end
   end
 
+  describe '.create' do
+    it 'creats a new custom audience' do
+      VCR.use_cassette('create_audience') do
+        audience = Eucalyptus::CustomAudience.create(name: "oz-test")
+      end
+    end
+  end
+
   describe '#ad_sets' do
     it 'returns ad_sets which belong to the audience' do
       VCR.use_cassette('audience_ad_sets') do
