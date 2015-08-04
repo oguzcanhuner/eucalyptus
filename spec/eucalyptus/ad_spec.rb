@@ -21,8 +21,7 @@ describe Eucalyptus::Ad do
   describe '#insights' do
     it 'returns an array of insights for the account' do
       VCR.use_cassette("ad_set_insights") do
-        active_ad = Eucalyptus::Ad.all.find{|ad| ad.adgroup_status == "ACTIVE"}
-        expect(active_ad.insights).to be_a Array
+        active_ad = Eucalyptus::Ad.all.find{|ad| ad.adgroup_status == "ACTIVE"}.first
         expect(active_ad.insights.first).to be_a Eucalyptus::Insight
       end
     end

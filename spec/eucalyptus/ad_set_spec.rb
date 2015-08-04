@@ -12,8 +12,7 @@ describe Eucalyptus::AdSet do
   describe '#insights' do
     it 'returns an array of insights for the account' do
       VCR.use_cassette("ad_set_insights") do
-        active_ad_set = Eucalyptus::AdSet.all.find{|ad_set| ad_set.campaign_status == "ACTIVE"}
-        expect(active_ad_set.insights).to be_a Array
+        active_ad_set = Eucalyptus::AdSet.all.find{|ad_set| ad_set.campaign_status == "ACTIVE"}.first
         expect(active_ad_set.insights.first).to be_a Eucalyptus::Insight
       end
     end
@@ -30,7 +29,6 @@ describe Eucalyptus::AdSet do
   describe '#ads' do
     it 'returns a collection of Ad objects which belong to the ad_set' do
       VCR.use_cassette("ad_set_ads") do
-        expect(ad_set.ads).to be_a Array
         expect(ad_set.ads.first).to be_a Eucalyptus::Ad
       end
     end

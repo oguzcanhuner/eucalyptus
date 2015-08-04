@@ -57,7 +57,7 @@ describe Eucalyptus::Resource do
       let(:parent) { double(:parent, id: 123) }
 
       it 'returns a collection of resources' do
-        expect(Eucalyptus::CustomAudience.all(graph: graph, parent: parent)).to be_a Array
+        expect(Eucalyptus::CustomAudience.all(graph: graph, parent: parent)).to be_a Eucalyptus::ResponseCollection
       end
 
       context 'when the target class has defined valid known fields' do
@@ -105,6 +105,16 @@ describe Eucalyptus::Resource do
           graph = double(:graph, put_connections: {success: true})
           ad_set = Eucalyptus::AdSet.find(6025097880671)
           expect(ad_set.update(graph: graph, fields: {bid_type: "CPM"})).to eql({success: true})
+        end
+      end
+    end
+
+    describe '#next_page' do
+      it 'updates a resource' do
+        VCR.use_cassette("adsets_next") do
+          ad_sets = Eucalyptus::AdSet.all
+          expect(ad_sets.next_page).to be_a Eucalyptus::ResponseCollection
+          expect(ad_sets.next_page.first).to be_a Eucalyptus::AdSet
         end
       end
     end

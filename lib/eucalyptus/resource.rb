@@ -1,6 +1,8 @@
 require 'json'
 
+
 module Eucalyptus
+
   class Resource
     def self.api_path
       raise "You must implement #{__method__.to_s}"
@@ -28,8 +30,8 @@ module Eucalyptus
         options[:fields] = self.known_fields
       end
 
-      response = graph.get_connection(parent.id, api_path, options)
-      response.collect{ |res| self.new(res) }
+      koala_response = graph.get_connection(parent.id, api_path, options)
+      ResponseCollection.new(self, koala_response)
     end
 
 
@@ -70,3 +72,4 @@ module Eucalyptus
     end
   end
 end
+

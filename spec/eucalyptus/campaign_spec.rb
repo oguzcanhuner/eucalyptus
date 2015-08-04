@@ -12,7 +12,6 @@ describe Eucalyptus::Campaign do
   describe '#insights' do
     it 'returns an array of insights for the account' do
       VCR.use_cassette("campaign_insights") do
-        expect(campaign.insights).to be_a Array
         expect(campaign.insights.first).to be_a Eucalyptus::Insight
       end
     end
@@ -21,7 +20,6 @@ describe Eucalyptus::Campaign do
   describe '#ads' do
     it 'returns a collection of Ad objects which belong to the campaign' do
       VCR.use_cassette("campaign_ads") do
-        expect(campaign.ads).to be_a Array
         expect(campaign.ads.first).to be_a Eucalyptus::Ad
       end
     end
@@ -30,7 +28,6 @@ describe Eucalyptus::Campaign do
   describe '#ad_sets' do
     it 'returns a collection of Ad objects which belong to the campaign' do
       VCR.use_cassette("campaign_ad_sets") do
-        expect(campaign.ad_sets).to be_a Array
         expect(campaign.ad_sets.first).to be_a Eucalyptus::AdSet
       end
     end
