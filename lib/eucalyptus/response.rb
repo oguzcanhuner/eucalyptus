@@ -14,22 +14,17 @@ module Eucalyptus
     end
   end
 
-  class ResponseCollection
+  class ResponseCollection < Array
     def initialize(klass, koala_response)
       @koala_response = koala_response
       @klass = klass
-      @array = elements(@koala_response)
+      self.concat elements(@koala_response)
     end
 
 
     def next_page
       next_page = @koala_response.next_page
       self.class.new(@klass, next_page)
-    end
-
-    # for array methods
-    def method_missing(method_sym, *args, &block)
-      @array.send(method_sym)
     end
 
     private

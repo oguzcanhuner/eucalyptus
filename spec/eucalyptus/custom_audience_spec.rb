@@ -27,7 +27,7 @@ describe Eucalyptus::CustomAudience do
   describe '#ad_sets' do
     it 'returns ad_sets which belong to the audience' do
       VCR.use_cassette('audience_ad_sets') do
-        audience = Eucalyptus::CustomAudience.all.first
+        audience = Eucalyptus::CustomAudience.all.last
         ad_sets = audience.ad_sets
         expect(ad_sets.first.targeting.custom_audiences.first['id']).to eql audience.id
       end
