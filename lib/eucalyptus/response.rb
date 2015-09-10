@@ -23,8 +23,10 @@ module Eucalyptus
 
 
     def next_page
-      next_page = @koala_response.next_page
-      self.class.new(@klass, next_page)
+      next_p = @koala_response.next_page
+      if next_p
+        self.class.new(@klass, next_p)
+      end
     end
 
     private
