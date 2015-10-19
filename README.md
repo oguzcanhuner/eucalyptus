@@ -17,6 +17,7 @@ You then need to grab yourself an access token from facebook and initialize Euca
 ```
 Eucalyptus.configure do |config|
   config.access_token = YOUR_ACCESS_TOKEN
+  config.default_account_id = DEFAULT_ACCOUNT_ID
 end
 ```
 

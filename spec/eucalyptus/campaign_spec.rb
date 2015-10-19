@@ -1,11 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Eucalyptus::Campaign do
-  before do
-    Eucalyptus.configure do |config|
-      config.access_token = ENV["ACCESS_TOKEN"]
-    end
-  end
 
   let(:campaign) { Eucalyptus::Campaign.all.last }
 

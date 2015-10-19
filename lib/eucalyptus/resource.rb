@@ -13,12 +13,11 @@ module Eucalyptus
     end
 
     def self.parent
-      Account.all.last
+      Eucalyptus.default_account
     end
 
     def self.find(id, fields: [], graph: Eucalyptus.graph)
       fields.concat(self.known_fields).uniq
-
       response = graph.get_object(id, fields: fields)
       self.new(response)
     end

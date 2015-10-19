@@ -22,5 +22,10 @@ end
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-
+  config.before do
+    Eucalyptus.configure do |config|
+      config.access_token = ENV["ACCESS_TOKEN"]
+      config.default_account_id = ENV["DEFAULT_ACCOUNT_ID"]
+    end
+  end
 end

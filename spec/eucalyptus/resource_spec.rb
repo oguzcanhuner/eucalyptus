@@ -1,12 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Eucalyptus::Resource do
-  before do
-    Eucalyptus.configure do |config|
-      config.access_token = ENV["ACCESS_TOKEN"]
-    end
-  end
-
   context "given a class which inherits from Eucalyptus::Resource" do
 
     describe ".find" do
