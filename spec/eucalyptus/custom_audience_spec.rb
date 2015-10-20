@@ -14,6 +14,18 @@ describe Eucalyptus::CustomAudience do
       VCR.use_cassette('populate_audience') do
         audience = Eucalyptus::CustomAudience.create(name: "oz-test")
         audience.populate(["oz@lostmy.name","dev@lostmy.name"])
+        audience.delete
+      end
+    end
+  end
+
+  describe '#remove' do
+    it 'populates an audience with a list of emails' do
+      VCR.use_cassette('populate_audience') do
+        audience = Eucalyptus::CustomAudience.create(name: "oz-test")
+        audience.populate(["oz@lostmy.name","dev@lostmy.name"])
+        audience.remove(["oz@lostmy.name","dev@lostmy.name"])
+        audience.delete
       end
     end
   end

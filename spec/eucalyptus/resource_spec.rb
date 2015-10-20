@@ -37,7 +37,7 @@ describe Eucalyptus::Resource do
         it 'accepts extra fields' do
           graph = double(:graph)
           expect(graph).to receive(:get_object)
-            .with(123, {fields: [:custom_field, :name, :description]})
+            .with(123, {fields: [:custom_field] + Eucalyptus::CustomAudience.known_fields})
             .and_return([])
 
           Eucalyptus::CustomAudience.find(123, graph: graph, fields: [:custom_field]) 
@@ -76,7 +76,7 @@ describe Eucalyptus::Resource do
         it 'accepts custom fields' do
           graph = double(:graph)
           expect(graph).to receive(:get_connection)
-            .with(123, "customaudiences", {fields: [:custom_field, :name, :description]})
+            .with(123, "customaudiences", {fields: [:custom_field] + Eucalyptus::CustomAudience.known_fields})
             .and_return([])
 
           Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {fields: [:custom_field]}) 
@@ -85,10 +85,10 @@ describe Eucalyptus::Resource do
         it 'accepts any time of option' do
           graph = double(:graph)
           expect(graph).to receive(:get_connection)
-            .with(123, "customaudiences", {action_breakdowns: [:custom_field], fields: [:name, :description]})
+            .with(123, "customaudiences", {action_breakdowns: [:custom_field], fields: Eucalyptus::CustomAudience.known_fields})
             .and_return([])
 
-          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {action_breakdowns: [:custom_field]}) 
+          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {action_breakdowns: [:ustom_field]}) 
         end
       end
     end

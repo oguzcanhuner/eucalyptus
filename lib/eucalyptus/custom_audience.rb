@@ -17,6 +17,12 @@ module Eucalyptus
       graph.put_connections(self.id, 'users', payload: payload)
     end
 
+    def remove(emails, graph: Eucalyptus.graph)
+      emails = emails.collect{|email| Digest::SHA256.hexdigest(email)}
+      payload = {schema: "EMAIL_SHA256", data: emails}.to_json
+      graph.delete_connections(self.id, 'users', payload: payload)
+    end
+
     def ad_sets(from_collection: AdSet.all)
       from_collection.collect do |ad_set|
         if ad_set.targeting.custom_audiences
@@ -26,7 +32,7 @@ module Eucalyptus
     end
 
     def self.known_fields
-      [:name, :description]
+      [:name, :description, :approximate_count]
     end
   end
 end
