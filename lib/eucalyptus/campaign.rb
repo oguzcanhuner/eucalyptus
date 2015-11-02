@@ -5,11 +5,8 @@ module Eucalyptus
     def self.known_fields
       [
         :id,
-        :buying_type,
         :campaign_group_status,
-        :name,
-        :objective,
-        :spend_cap
+        :name
       ]
     end
 
