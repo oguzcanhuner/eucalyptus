@@ -3,16 +3,15 @@ Dir[File.dirname(__FILE__) + '/eucalyptus/**/*.rb'].each do |file|
   require file
 end
 
-Koala.config.api_version = 'v2.3'
 
 module Eucalyptus
   class << self
-    attr_accessor :access_token, :default_account_id, :graph
+    attr_accessor :api_version, :access_token, :default_account_id, :graph
 
     def configure
       yield(self)
+      Koala.config.api_version = api_version
       self.graph = Koala::Facebook::API.new(access_token)
-      self.default_account_id = default_account_id
     end
 
     def default_account

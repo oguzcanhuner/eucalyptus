@@ -26,6 +26,7 @@ RSpec.configure do |config|
     Eucalyptus.configure do |config|
       config.access_token = ENV["ACCESS_TOKEN"]
       config.default_account_id = ENV["DEFAULT_ACCOUNT_ID"]
+      config.api_version = "v2.3"
     end
   end
 end

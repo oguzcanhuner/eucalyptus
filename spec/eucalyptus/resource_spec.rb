@@ -88,7 +88,7 @@ describe Eucalyptus::Resource do
             .with(123, "customaudiences", {action_breakdowns: [:custom_field], fields: Eucalyptus::CustomAudience.known_fields})
             .and_return([])
 
-          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {action_breakdowns: [:ustom_field]}) 
+          Eucalyptus::CustomAudience.all(graph: graph, parent: parent, options: {action_breakdowns: [:custom_field]}) 
         end
       end
     end
