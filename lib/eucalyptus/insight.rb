@@ -11,7 +11,8 @@ module Eucalyptus
         :spend,
         :cost_per_action_type,
         :action_values,
-        :inline_link_clicks
+        :inline_link_clicks,
+        :actions
       ]
     end
 
