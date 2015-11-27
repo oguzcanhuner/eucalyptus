@@ -4,7 +4,6 @@ module Eucalyptus
   class Insight < Resource
     def self.known_fields
      [
-        :clicks,
         :cpc,
         :ctr,
         :reach,
@@ -12,7 +11,7 @@ module Eucalyptus
         :spend,
         :cost_per_action_type,
         :action_values,
-        :actions
+        :inline_link_clicks
       ]
     end
 

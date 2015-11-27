@@ -4,10 +4,10 @@ describe Eucalyptus::Insight do
   describe '.known_fields' do
     it 'returns an object which responds to available fields' do
       VCR.use_cassette('account_insights') do
-        account = Eucalyptus::Account.all.last
+        account = Eucalyptus::Account.all.first
         insights = account.insights.first
 
-        expect(insights).to respond_to :clicks
+        expect(insights).to respond_to :inline_link_clicks
         expect(insights).to respond_to :cpc
       end
     end
